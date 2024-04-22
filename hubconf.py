@@ -56,7 +56,7 @@ class cs21b059(nn.Module):
         return x
 
 #train the network
-def train_network(train_loader, optimizer,criteria, e):
+def train_network(train_loader, model, optimizer,criteria, e):
   for epoch in range(e):  # loop over the dataset multiple times
 
     running_loss = 0.0
@@ -94,5 +94,5 @@ def get_model_advanced(train_loader, n_epochs=10, lr=1e-4):
 	model = cs21b059()
 	optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9)
 	criteria = loss_fun
-	train_network(train_loader, optimizer, criteria, n_epochs)
+	train_network(train_loader, model, optimizer, criteria, n_epochs)
 	return model
